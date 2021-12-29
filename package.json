@@ -1,11 +1,10 @@
 {
-  "name": "electron-quick-start",
+  "name": "vite-react-electron",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A vite-react-electron + mobx application ",
   "main": "main.js",
   "scripts": {
-    "start": "concurrently \"npm run dev\" \"npm run electron\"",
-    "dev": "vite",
+    "start": "concurrently \"vite\" \"npm run electron\"",
     "electron": "mode=development electron-forge start",
     "build": "vite build && npm run make",
     "package": "sudo electron-forge package",
@@ -14,36 +13,7 @@
     "publish": "electron-forge publish"
   },
   "homepage": ".",
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "icon": ""
-      },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "exercent"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
-  },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/huangshuai9411/vite-react-electron.git",
   "keywords": [
     "Electron",
     "quick",
@@ -72,5 +42,34 @@
     "electron": "^16.0.5",
     "less": "^4.1.2",
     "vite": "^2.7.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": ""
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "exercent"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
