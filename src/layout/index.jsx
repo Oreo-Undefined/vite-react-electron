@@ -15,7 +15,7 @@ export default function BaseLayout() {
         <Menu.Item key="/dynamic/123"><Link to="/dynamic/123">dynamic</Link></Menu.Item>
       </Menu>
       <Layout>
-        <Sider className={styles.Sider} theme="light">mode: { env }</Sider>
+        {pathname !== '/about' && <Sider className={styles.Sider} theme="light">mode: { env }</Sider>}
         <Content className={styles.Content}><Outlet /></Content>
       </Layout>
     </Layout>

@@ -1,0 +1,108 @@
+@clock-size: 400px;
+
+
+.content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clock {
+  overflow: hidden;
+  width: @clock-size;
+  height: @clock-size;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 10px;
+    width: 10px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #000;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 50%;
+    width: 1px;
+    background-color: #000;
+  }
+}
+@keyframes rotate-animate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.ticks {
+  position: absolute;
+  animation-timing-function: linear;
+  animation-name: rotate-animate;
+  animation-iteration-count: infinite;
+  border: 1px solid #000;
+  border-radius: 50%;
+  > div {
+    height: 100%;
+    width: 100%;
+  }
+  &.second {
+    height: @clock-size;
+    width: @clock-size;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    animation-duration: 60s;
+    .tick {
+      transform-origin: 0px calc(@clock-size / 2);
+      background-color: #999;
+    }
+  }
+  &.minute {
+    height: calc(@clock-size * .8);
+    width: calc(@clock-size * .8);
+    left: calc(@clock-size * .1);
+    top: calc(@clock-size * .1);
+    z-index: 2;
+    animation-duration: 3600s;
+    .tick {
+      transform-origin: 0px calc(@clock-size / 2 * .8);
+      background-color: #666;
+    }
+  }
+  &.hour {
+    height: calc(@clock-size * .5);
+    width: calc(@clock-size * .5);
+    left: calc(@clock-size * .25);
+    top: calc(@clock-size * .25);
+    z-index: 3;
+    animation-duration: 43200s;
+    .tick {
+      transform-origin: 0px calc(@clock-size / 2 * .5);
+      background-color: #333;
+    }
+  }
+}
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  span {
+    position: absolute;
+    top: 8px;
+    left: -.5rem;
+    width: 2rem;
+    text-align: left;
+  }
+}

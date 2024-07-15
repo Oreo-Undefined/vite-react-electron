@@ -5,6 +5,7 @@ import Loading from './component/Loading'
 import App from './Routes'
 import { Provider, store } from 'module'
 import 'antd/dist/antd.css';
+import './global.css';
 
 ReactDOM.render(
   <Provider value={store}>
