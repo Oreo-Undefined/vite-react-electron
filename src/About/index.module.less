@@ -11,10 +11,10 @@
   overflow: hidden;
   width: @clock-size;
   height: @clock-size;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 50%;
-  border: 1px solid #000;
   position: relative;
+  color: #fff;
   &:before {
     content: '';
     position: absolute;
@@ -24,7 +24,7 @@
     width: 10px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background-color: #000;
+    background-color: #fff;
   }
   &:after {
     content: '';
@@ -33,7 +33,7 @@
     top: 0;
     height: 50%;
     width: 1px;
-    background-color: #000;
+    background-image: linear-gradient(to bottom, #fff 0%, transparent 100%);
   }
 }
 @keyframes rotate-animate {
@@ -50,13 +50,15 @@
   animation-timing-function: linear;
   animation-name: rotate-animate;
   animation-iteration-count: infinite;
-  border: 1px solid #000;
   border-radius: 50%;
+  border-width: 1px;
   > div {
     height: 100%;
     width: 100%;
   }
   &.second {
+    border-style: dotted;
+    border-color: #fff;
     height: @clock-size;
     width: @clock-size;
     left: 0;
@@ -65,10 +67,12 @@
     animation-duration: 60s;
     .tick {
       transform-origin: 0px calc(@clock-size / 2);
-      background-color: #999;
+      background-color: #fff;
     }
   }
   &.minute {
+    border-style: dashed;
+    border-color: #68f7ff;
     height: calc(@clock-size * .8);
     width: calc(@clock-size * .8);
     left: calc(@clock-size * .1);
@@ -77,10 +81,12 @@
     animation-duration: 3600s;
     .tick {
       transform-origin: 0px calc(@clock-size / 2 * .8);
-      background-color: #666;
+      background-color: #68f7ff;
     }
   }
   &.hour {
+    border-style: solid;
+    border-color: #ec131f;
     height: calc(@clock-size * .5);
     width: calc(@clock-size * .5);
     left: calc(@clock-size * .25);
@@ -89,7 +95,7 @@
     animation-duration: 43200s;
     .tick {
       transform-origin: 0px calc(@clock-size / 2 * .5);
-      background-color: #333;
+      background-color: #ec131f;
     }
   }
 }

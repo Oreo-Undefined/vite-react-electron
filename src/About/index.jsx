@@ -1,8 +1,8 @@
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import classnames from 'classnames';
 import styles from './index.module.less'
 
-export default memo(function Clock() {
+export default function Clock() {
   const [{seconds, minutes, hours}] = useState(() => {
     const date = new Date();
     const ms = date.getMilliseconds();
@@ -50,4 +50,4 @@ export default memo(function Clock() {
       </div>
     </div>
   );
-});
+}
