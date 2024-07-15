@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import classnames from 'classnames';
 import styles from './index.module.less'
 
 export default function Clock() {
-  const [{seconds, minutes, hours}] = useState(() => {
+  const {seconds, minutes, hours} = (() => {
     const date = new Date();
     const ms = date.getMilliseconds();
     const second = date.getSeconds() + ms / 1000;
@@ -15,7 +14,7 @@ export default function Clock() {
       minutes: -minute / 60 * 360,
       hours: -hour / 12 * 360,
     };
-  });
+  })();
   const DrawTicks = ({className, total, gap = 5, rotate}) => {
     const ticks = Array(total).fill(0).map((_, i) => {
       const angle = i * 360 / total - 2 / 200 * 180 / Math.PI; // 刻度宽度的一半转为角度，去掉这一部分误差
